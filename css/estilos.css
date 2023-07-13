@@ -1,0 +1,391 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+
+.tamaño {
+    object-fit: cover;
+}
+
+img {
+    object-fit: cover;
+}
+
+/*botonera y footer*/
+.bg-celeste {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.margenes {
+    margin: 0.5em;
+}
+
+.boton-search {
+    color: white;
+    background-color: black;
+    border-radius: 0.5em;
+}
+
+.title-h1 {
+    margin: 0.3em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*formulario*/
+.text-blue {
+    color: blue;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.align-input {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0.7em;
+    width: 70%;
+    margin-left: 24em;
+}
+
+/*navbar*/
+.navbar-nav {
+    display: flex;
+    align-items: flex-start;
+    text-align: start;
+    justify-content: flex-start;
+}
+
+/*card de bs*/
+.margen-card {
+    margin: 1em;
+    padding: 0em 1em;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.color-card {
+    font-size: 1.3em;
+}
+
+/*form de netsletter*/
+.centrar-form {
+    text-align: center;
+}
+
+.margenes-input {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 1em;
+}
+
+.boton-registrarse {
+    background-color: black;
+    color: white;
+    border-radius: 0.9em;
+    margin-bottom: 1.1em;
+
+}
+/*contenedor de envio gratis*/
+.shipping-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .shipping-text {
+    font-size: 16px;
+    margin-left: 35em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+
+
+/*footer*/
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer-p {
+    margin: 0.5em;
+}
+
+.text-footer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon-conteiner {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.footerIcon2 {
+    margin: 0.2em;
+
+}
+/*titles de index*/
+
+.titles {
+    text-align: center;
+    margin: 0.5em;
+}
+
+.tamaño {
+    object-fit: cover;
+}
+
+/*botonera y footer*/
+.bg-celeste {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.margenes {
+    margin: 0.5em;
+}
+
+.boton-search {
+    color: white;
+    background-color: black;
+    border-radius: 0.5em;
+}
+
+.title-h1 {
+    margin: 0.3em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*formulario*/
+.text-blue {
+    color: blue;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.align-input {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0.7em;
+    width: 70%;
+    margin-left: 24em;
+}
+
+.padding-text {
+    padding: 0.2em;
+}
+
+/*navbar*/
+.navbar-nav {
+    display: flex;
+    align-items: flex-start;
+    text-align: start;
+    justify-content: flex-start;
+}
+
+.colors {
+    background-color: grey;
+    color: white;
+    border-color: transparent;
+}
+
+/*imagenes del carrito*/
+.widht {
+    display: flex;
+    object-fit: cover;
+}
+
+/*modal de carrito*/
+.display {
+    display: flex;
+    flex-direction: row;
+}
+
+.img-c {
+    display: block;
+    margin: auto;
+    max-width: 150px;
+}
+
+.modal-p {
+    display: flex;
+    justify-content:right;
+    box-sizing: border-box;
+    margin: 0.2em 0em;
+} 
+
+.bold {
+    display: flex;
+    margin: 0.5em 0em;
+    font-weight: bold;
+    color: black;
+align-items: end;
+justify-content: end;
+}
+
+.card-body {
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.text .text-modal {
+    text-transform: lowercase;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    margin: auto;
+}
+
+/*card de bs*/
+.margen-card {
+    margin: 1em;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 1.3em;
+    margin: 0.5em;
+}
+
+.text-color {
+    font-weight: bold;
+    color: lightskyblue;
+    font-size: 16px;
+}
+
+.color {
+    background-color: #FFB6C1;
+    color: white;
+    margin: 0.5em;
+    border-color: transparent;
+}
+
+/*form de netsletter*/
+.centrar-form {
+    text-align: center;
+}
+
+.margenes-input {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: blue;
+    font-size: 1em;
+}
+
+.boton-registrarse {
+    background-color: black;
+    color: white;
+    border-radius: 0.4em;
+    margin-bottom: 1.1em;
+    border-color: transparent;
+
+}
+
+/*footer*/
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.footer-p {
+    margin: 0.5em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/*selector de productos:*/
+#selectOpciones {
+    background-color:lightsteelblue;
+    color:white;
+    font-size: 1em;
+}
+
+/*titles de index*/
+
+.titles {
+    text-align: center;
+    margin: 0.5em;
+}
+
+/*formulario*/
+.title-contacto {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.3em;
+    color: lightblue;
+    font-weight: bold;
+    margin: 0.5em;
+}   
+.contacto-Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+    color: black;
+}
+
+.btn-enviar {
+    background-color: #F08080;
+    color: white;
+    border-radius: 0.2em;
+    margin: 0.5em;
+    border-color: transparent;
+}
+
+label {
+    margin: 0.3em;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ICONOS-->
+    <link rel="icon" type="image/svg+xml" href="../img/icono.svg">
+    <!--Libreria de iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!--BS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="../css/estilos.css">
+    <title class="title-contacto">Contacto-The Closet</title>
+</head>
+
+<body>
+    <h6 class="container h6-estilo">Envio gratis superando los 40.000</h6>
+
+    <nav class="navbar navbar-expand-lg bg-celeste">
+
+        <div class="container">
+            <a class="navbar-brand text-white mr-4" href="../index.html">The Closet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse cabecera" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Categorias
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="mujer.html">Mujer</a></li>
+                            <li><a class="dropdown-item" href="hombre.html">Hombre</a></li>
+                            <li><a class="dropdown-item" href="niños.html">Niños</a></li>
+                            <li><a class="dropdown-item" href="accesorios.html">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+
+                <div class="cabecera">
+
+                    <form class="d-flex">
+                        <input id="buscadores" class="form-control me-2"  placeholder="Buscar" aria-label="Search">
+                        <button id="btnBuscar" class="btn btn-outline-danger colors">Buscar</button>  
+                      </form> 
+
+                    <a class="nav-link margenes" href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+
+                    <a class="nav-link margenes" href="#">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+    </nav>
+    </div>
+    </div>
+    </header>
+  
+  <h3 class="title-contacto">INFORMACION DE CONTACTO</h3>
+
+    <form action="../index.html" class="contacto-Form" id="formulario" method="post">
+
+        <label for="name" class="lab-form">NOMBRE COMPLETO</label>
+        <input class="input-form" type="text" id="name" required>
+
+        <label for="email" class="lab-form">EMAIL</label>
+        <input class="input-form" type="email" id="email" required>
+
+        <label for="telefono" class="lab-form">TELEFONO</label>
+        <input class="input-form" type="number" id="telefono" required  maxlength="9">
+
+        <label for="motivo" class="lab-form">MOTIVO DE CONSULTA</label>
+        <input class="input-form" type="text" id="motivo">
+
+        <label for="mensaje" class="lab-form">CONSULTA</label>
+        <textarea name="consulta" id="mensaje" type="text" cols="56" rows="3" required placeholder="Ingrese su consulta aqui" maxlength="80"></textarea>
+
+        <button type="submit" id="botonEnviar" class="btn-enviar">Enviar</button>
+       
+    </form>
+
+    <!--Footer de  la pagina-->
+    <footer class="bg-celeste row">
+        <div class="container">
+            <div class="row footer-p">
+                <div class="col-md-6">
+                    <p class="footer-p">&copy; The Closet-2023</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Script de Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+        </script>
+    <!--Script de mis archivo -->
+    <script src="../js/classConst.js" type="text/javascript"></script>
+    <script src="../js/functionViejas.js" type="text/javascript"></script>
+</body>
+
+</html>
