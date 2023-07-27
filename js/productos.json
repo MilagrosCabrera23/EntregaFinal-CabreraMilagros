@@ -1,0 +1,319 @@
+[
+    { 
+        "id": 20,
+        "producto": "Conjunto de  mujer",
+        "categoria": "Mujer",
+        "precio": 10500,
+        "imagen": "img.1.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 21,
+        "producto": "Buzo Blanco deportivo",
+        "categoria": "Mujer",
+        "precio": 22000,
+        "imagen": "img.5.webp",
+        "cantidad": 1
+    },{
+        "id": 22,
+        "producto": "Campera de mujer",
+        "categoria": "Mujer",
+        "precio": 50000,
+        "imagen": "img.7.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 23,
+        "producto": "Pantalón de mezclilla",
+        "categoria": "Mujer",
+        "precio": 17400,
+        "imagen": "img.10.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 24,
+        "producto": "Remera manga corta",
+        "categoria": "Mujer",
+        "precio": 6500,
+        "imagen": "img.8.webp",
+        "cantidad": 1
+    },{
+        "id": 25,
+        "producto": "Blazer color chocolate",
+        "categoria": "Mujer",
+        "precio":  41200,
+        "imagen": "img.9.webp",
+        "cantidad": 1
+    },{
+        "id": 26,
+        "producto": "Camisa manga larga",
+        "categoria": "Mujer",
+        "precio":   24700,
+        "imagen": "img.6.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 27,
+        "producto": "Sujetador de encaje",
+        "categoria": "Mujer",
+        "precio":16700,
+        "imagen": "img.3.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 28,
+        "producto": "Tanga de microfibra",
+        "categoria": "Mujer",
+        "precio": 6500,
+        "imagen": "img.2.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 29,
+        "producto": "Zapatillas urbanas",
+        "categoria": "Mujer",
+        "precio": 62000,
+        "imagen":"zapatila1.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 2,
+        "producto": "Pantalón cargo",
+        "categoria": "Hombre",
+        "precio": 25000,
+        "imagen":"hombre.10.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 3,
+        "producto": "Buzo deportivo",
+        "categoria": "Hombre",
+        "precio": 30000,
+        "imagen":"hombre.9.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 4,
+        "producto": "Campera deportiva",
+        "categoria": "Hombre",
+        "precio": 57000,
+        "imagen":"hombre.11.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 5,
+        "producto": "Camisa de cuello",
+        "categoria": "Hombre",
+        "precio": 27400,
+        "imagen":"hombre.1.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 6,
+        "producto": "Remera manga corta",
+        "categoria": "Hombre",
+        "precio":18200,
+        "imagen":"hombre.4.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 7,
+        "producto": "Saco de vestir",
+        "categoria": "Hombre",
+        "precio": 29200,
+        "imagen":"hombre.2.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 8,
+        "producto": "Chaleco de mezclilla",
+        "categoria": "Hombre",
+        "precio": 24900,
+        "imagen":"hombre.7.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 9,
+        "producto": "Campera de jean",
+        "categoria": "Hombre",
+        "precio": 167000,
+        "imagen":"hombre.3.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 10,
+        "producto": "zapatos de hombre",
+        "categoria": "Hombre",
+        "precio": 45500,
+        "imagen":"hombre.12.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 11,
+        "producto": "Zapatillas urbanas",
+        "categoria": "Hombre",
+        "precio": 74000,
+        "imagen":"hombre.5.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 12,
+        "producto": "Enteritos de bebe",
+        "categoria": "Niños",
+        "precio": 15000,
+        "imagen":"niños.10.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 13,
+        "producto": "Bermuda Jean",
+        "categoria": "Niños",
+        "precio": 26400,
+        "imagen":"niños.11.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 14,
+        "producto": "Borcegos infantiles",
+        "categoria": "Niños",
+        "precio": 17000,
+        "imagen":"niños.7.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 15,
+        "producto": "Zapatillas de bebes",
+        "categoria": "Niños",
+        "precio": 20200,
+        "imagen":"niños.4.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 16,
+        "producto": "Campera impermeable para exteriores",
+        "categoria": "Niños",
+        "precio": 28100,
+        "imagen":"niños.6.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 17,
+        "producto": "Camisa de manga corta",
+        "categoria": "Niños",
+        "precio": 19200,
+        "imagen":"niños.2.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 18,
+        "producto": "Remera de manga corta",
+        "categoria": "Niños",
+        "precio": 4900,
+        "imagen":"niños.8.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 19,
+        "producto": "Conj del agua",
+        "categoria": "Niños",
+        "precio": 147000,
+        "imagen":"niños.9.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 30,
+        "producto": "Buzo de algodón",
+        "categoria": "Niños",
+        "precio": 22500,
+        "imagen":"niños.3.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 31,
+        "producto": "Vestido liso",
+        "categoria": "Niños",
+        "precio": 34000,
+        "imagen":"niños.1.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 32,
+        "producto": "Collar de plata",
+        "categoria": "Accesorios",
+        "precio":  28000,
+        "imagen":"accesorios.1.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 33,
+        "producto": "Perfumes",
+        "categoria": "Accesorios",
+        "precio":  15000,
+        "imagen":"accesorios.5.webp",
+        "cantidad": 1
+    },
+    {
+        "id": 34,
+        "producto": "Gafas de sol",
+        "categoria": "Accesorios",
+        "precio":  70000,
+        "imagen":"accesorios.3.webp",
+        "cantidad": 1 
+    },
+    {
+        "id": 35,
+        "producto": "Reloj de pulsera",
+        "categoria": "Accesorios",
+        "precio":  27200,
+        "imagen":"accesorios.4.webp",
+        "cantidad": 1 
+    },
+    {
+        "id": 36,
+        "producto": "Cinturón de cuero",
+        "categoria": "Accesorios",
+        "precio":  23600,
+        "imagen":"accesorios.7.webp",
+        "cantidad": 1 
+    },
+    {
+        "id": 37,
+        "producto": "Cartera de cuero",
+        "categoria": "Accesorios",
+        "precio": 69200,
+        "imagen":"accesorios.2.webp",
+        "cantidad": 1 
+    },
+    {
+        "id": 38,
+        "producto": "Mochila de cuero",
+        "categoria": "Accesorios",
+        "precio": 44900,
+        "imagen":"accesorios.6.webp",
+        "cantidad": 1 
+    },
+    {
+        "id": 39,
+        "producto": "Anillos",
+        "categoria": "Accesorios",
+        "precio": 6200,
+        "imagen":"accesorios.10.webp",
+        "cantidad": 1 
+    },
+    {
+        "id": 40,
+        "producto": "Paleta de sombras",
+        "categoria": "Accesorios",
+        "precio": 10500,
+        "imagen":"accesorios.9.webp",
+        "cantidad": 1 
+    },
+    {
+        "id": 41,
+        "producto": "Billetera compacta",
+        "categoria": "Accesorios",
+        "precio": 9000,
+        "imagen":"accesorios.8.webp",
+        "cantidad": 1 
+    }
+]

@@ -1,38 +1,43 @@
-//en el archivo de functionViejas esta el evento del formualrio de la pagina de contacto.
+//Este es mi proyecto de Tienda de ropa.
 
-
-//CAPTURAS DE ID:
+//CAPTURAS DE ID:Capture los id para luego darle un evvento a cada uno.
 let productoDiv = document.getElementById("productos")
-let verCatalogo = document.getElementById("verCatalogo1")
-let ocultarCatalogoTienda = document.getElementById("ocultarCatalogoTienda")
-let ordenarSelect = document.getElementById("selectOpciones")
-//DOM agregar PRODUCTO
-let agregarProductoBoton = document.getElementById("agregarProductoBoton")
-//barra de busqueda:
+let selectOpciones = document.getElementById("selectOpciones")
+let botonAgregarProducto = document.getElementById("botonAgregarProducto")
 let buscadores = document.getElementById("buscadores")
 let coincidencias = document.getElementById("coincidencias")
-let bodyCarrito = document.getElementById("modalBodyCarrito")
+let bodyDelCarrito = document.getElementById("bodyDelCarrito")
 let botonCarrito = document.getElementById("botonCarrito")
 let precioTotal = document.getElementById("precioTotal")
+let cargandoText = document.getElementById("cargandoText")
+let cargando = document.getElementById("cargando")
+let finalizarCompra = document.getElementById("finalizarCompra")
+let newsletterForm = document.getElementById("newsletterForm")
+let formulario = document.getElementById("formulario")
+let loginIcon = document.getElementById("loginIcon");
+let botonCerrarSesion = document.getElementById("botonCerrarSesion")
 
 
 
 
-//opcion 1 del MENU :MUESTRA TODOS LOS PRODUCTOS DE MI ARRAY
-function mostrarCatalogo(array) {
+//Esta funcion muestras todos mis productos,y ademas tiene el evento de agregar el producto al carrito.
+function mostrarMiCatalogo(array) {
     //resetear el DOM
     productoDiv.innerHTML = ``
     //Recorrer array para imprimir en el DOM MIS PRODUCTOS
     for (let productos of array) {
         let NuevoProductoDiv = document.createElement("div")
         //CLASES:
-        NuevoProductoDiv.className = "col-12 col-md-2 my-2 w-25 margen-card"
-        NuevoProductoDiv.innerHTML = `<div id="${productos.id}" class="card text-center " style="width: 18rem;">
-    <img class="card-img-top img-fluid tamaño" style="height: 200px; "src="img/${productos.imagen}" alt="${productos.imagen} de ${productos.categoria}">
+        NuevoProductoDiv.className = "col-12 col-md-2 my-2 w-25"
+        NuevoProductoDiv.innerHTML = `
+        <div id="${productos.id}" class="card text-center" style="width: 18rem;">
+    <img class="card-img-top img-fluid tamaño" style="height:200px" src="img/${productos.imagen}" alt="${productos.imagen} de ${productos.categoria}">
         <div class="card-body-bg">
-            <h6 class="card-title">${productos.producto}</h6>
-            <p class= "text-color color-card">  $ ${productos.precio}</p>
-            <button id="agregarBtn${productos.id}" class="btn btn color btn-outline-danger">AGREGAR AL CARRITO</button>
+            <h4 class="card-title">${productos.producto}</h4>
+
+            <p class="card-text">Categoria: ${productos.categoria}<small>
+            <p class= "text-color color-card"> Precio: ${productos.precio}</p>
+            <button id="agregarBtn${productos.id}" class="btn btn color btn-outline-danger">Agregar al carrito</button>
         </div>`
 
         productoDiv.appendChild(NuevoProductoDiv)
@@ -41,71 +46,117 @@ function mostrarCatalogo(array) {
 
         agregarBtn.addEventListener("click", () => {
             //evento de agregar los productos al carrito:
-            agregarAlCarrito(productos)
-
-
+            agregarProdAlCarrito(productos)
         })
     }
 }
 
-function agregarAlCarrito(productos) {
+
+//Esta funcion agrega los productos al carrito,si ya existe en el carrito muestra un mensaje de error 
+function agregarProdAlCarrito(productos) {
     //ver si existe ese producto en el array
     let productosAgregados = productosDelCarrito.find((elemento) => elemento.id == productos.id)
     //si no lo encuentra,que me lo agregue al carrito:
 
     if (productosAgregados == undefined) {
-        productosDelCarrito.push(productos),
-            localStorage.setItem("carrito", JSON.stringify(productosDelCarrito))
+        productosDelCarrito.push(productos)
+        localStorage.setItem("carrito", JSON.stringify(productosDelCarrito))
 
         Swal.fire({
             text: `El producto ${productos.producto} ha sido agregado`,
             position: 'center',
             icon: 'success',
-            timer: 2000,
+            timer: 1400,
             showConfirmButton: false
         })
     }
     else {
-
+        //Sweetalert 
         Swal.fire({
-            title: `Ups,hubo un error`,
-            text: `El libro ya existe en el carrito`,
+            title: `El producto ya existe en el carrito`,
             icon: "error",
-            timer: 2000,
+            timer: 1400,
             showConfirmButton: false
-        });
+        })
     }
-
 }
 
-//DOM: imprimir los obejtos del carrito:
+
+//Esta funcion:Imprimi los productos que esten en el carrito,ademas tiene 3 botones: 1 para sumar unidad,1 para restar  unidad  y el ultimo para eliminar el  producto.Y ademas tambien muestra el total.
 function mostrarProductoCarrito(array) {
     //resetea dom parfa no sobre imprimir
-    bodyCarrito.innerHTML = ``
+    bodyDelCarrito.innerHTML = ``
     //recorrer el array
     array.forEach((productoparaCarrito) => {
-        bodyCarrito.innerHTML += `  
-        <div class="card mb-3" id="productosCarrito${productoparaCarrito.id}">
-            <img src="img/${productoparaCarrito.imagen}" class="img-fluid rounded-start " alt="...">
-            </div>
-
+        bodyDelCarrito.innerHTML += `  
+        <div class="card" id="productosCarrito${productoparaCarrito.id}">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="img/${productoparaCarrito.imagen}" class="img-fluid img-c" alt="">
+          </div>
           <div class="col-md-8">
-              <p class="card-text bold ">${productoparaCarrito.producto}</p>
-              <p class="card-text modal-p" ><small class="text-muted">Precio: $ ${productoparaCarrito.precio}</small></p>
-              <p class="card-text modal-p" ><small class="text-muted">Categoria: ${productoparaCarrito.categoria}</small></p>
-              <button class="btn btn-danger display" id="botonEliminar${productoparaCarrito.id}"><i class="fas fa-trash-alt"></i></button>
+            <h5 class="card-title">${productoparaCarrito.producto}</h5>
+
+
+            <p class="card-text">Precio unitario: $${productoparaCarrito.precio}<small>
+            <p class="card-text">Total de unidades: ${productoparaCarrito.cantidad}</p> 
+            <p class="card-text">SubTotal: $${productoparaCarrito.cantidad * productoparaCarrito.precio}</p>   
+              <button class= "btn btn-secondary m-3" id="botonSumarUnidades${productoparaCarrito.id}"><i class=""></i>+1</button>
+              <button class= "btn btn-light" id="botonEliminarUnidades${productoparaCarrito.id}"><i class=""></i>-1</button> 
+              <button class="btn btn-danger" id="botonEliminar${productoparaCarrito.id}"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
         </div>
+      </div>
 `
     })
-    //evento d eeliminar producto + for each;
+    //evento para sumar unidades 
     array.forEach((productoparaCarrito) => {
+        document.getElementById(`botonSumarUnidades${productoparaCarrito.id}`).addEventListener("click", () => {
+            console.log(`Se ha sumado una unidad`)
+            //agrego el metodo de la clase constructora:
+            productoparaCarrito.sumarCantidades()
+            console.log(productoparaCarrito.cantidad)
+            //seteamos storage:
+            localStorage.setItem("carrito", JSON.stringify(array))
+            //mostramos en el dom
+            mostrarProductoCarrito(array)
+        })
+
+        //restar unidades:
+        document.getElementById(`botonEliminarUnidades${productoparaCarrito.id}`).addEventListener("click", () => {
+            let cantidadProd = productoparaCarrito.restarCantidades()
+            console.log(cantidadProd)
+
+            if (cantidadProd == 0) {
+                //borrar del DOM
+                let cartaProducto = document.getElementById(`productoparaCarrito${productoparaCarrito.id}`)
+                cartaProducto.remove()
+                let productoAEliminar = array.find((producto) => producto.id == productoparaCarrito.id)
+                console.log(productoAEliminar)
+                let posicionI = array.indexOf(productoAEliminar)
+                console.log(posicionI)
+                array.splice(posicionI, 1)
+                console.log(array)
+                //setear storage
+                localStorage.setItem("carrito", JSON.stringify(array))
+
+                //debemos calcularTotal??
+                calcularTotal(array)
+            }
+            else {
+                localStorage.setItem("carrito", JSON.stringify(array))
+            }
+            mostrarProductoCarrito(array)
+        })
+
+        //evento de eliminar producto + for each;
         document.getElementById(`botonEliminar${productoparaCarrito.id}`).addEventListener("click", () => {
             console.log(`producto eliminado`)
             //eliminarlo del dom: 
             let cartaProducto = document.getElementById(`productosCarrito${productoparaCarrito.id}`)
             cartaProducto.remove()
             //lo borramos del array:
-
             let eliminarProducto = array.find((productos) => productos.id == productoparaCarrito.id)
             console.log(eliminarProducto)
 
@@ -114,46 +165,34 @@ function mostrarProductoCarrito(array) {
             array.splice(position, 1)
             localStorage.setItem("carrito", JSON.stringify(array));
 
-            calcularTotal(array);
+            calcularTotal(array)
         })
     })
-    calcularTotal(array);
+    calcularTotal(array)
 }
 
-
-
-function eliminarProducto() {
-    mostrarCatalogo(tiendaCompleta)
-
-    let eliminarID = parseInt(prompt("Ingrese el id que desea eliminar"))
-    let arrayID = tiendaCompleta.map(producto => producto.id)
-    console.log(arrayID)
-
-    let indice = arrayID.indexOf(eliminarID)
-    arrray.splice(indice, 1)
-    localStorage.setItem("carrito", JSON.stringify(array))
-}
-
+//funcion para calcular el total de los productos que existan en el carrito.
 function calcularTotal(array) {
-    //recibe como parametro: funcion y el valor inicial del acc.
-    let total = array.reduce((acumulador, productoparaCarrito) => acumulador + productoparaCarrito.precio, 0)
-    //imprime ttotal en dom:
-    total == 0 ? precioTotal.innerHTML = `No hay productos` : precioTotal.innerHTML = `<strong> Subtotal: ${total} </strong> `
+    let total = array.reduce((acumulador, productoparaCarrito) => acumulador + (productoparaCarrito.precio * productoparaCarrito.cantidad), 0)
+    total == 0 ? precioTotal.innerHTML = `No hay productos en el carrito` : precioTotal.innerHTML = `<strong> SUBTOTAL: ${total} </strong> `
+    return total;
 }
 
+
+//funcionees del select opciones,filtra por menor y mayor precio  y/o categorias segun especifique el usuario.
 function ordenarMenorMayor(array) {
     //copia del array original, para aplicar sort y no modificar estanteria
     const menorMayorPrecio = [].concat(array)
     //de forma ascendente por el atributo precio
     menorMayorPrecio.sort((a, b) => a.precio - b.precio)
-    mostrarCatalogo(menorMayorPrecio)
+    mostrarMiCatalogo(menorMayorPrecio)
 }
 
 function ordenarMayorMenor(array) {
     const mayorMenorPrecio = [].concat(array)
     //ordenar forma descendente 
     mayorMenorPrecio.sort((elem1, elem2) => elem2.precio - elem1.precio)
-    mostrarCatalogo(mayorMenorPrecio)
+    mostrarMiCatalogo(mayorMenorPrecio)
 }
 
 function ordenarCategoriaProductos(array) {
@@ -174,75 +213,227 @@ function ordenarCategoriaProductos(array) {
         }
         return 0
     })
-    mostrarCatalogo(arrayCategoriaProductos)
+    mostrarMiCatalogo(arrayCategoriaProductos)
 }
 
-
-//opcion 2 del MENU:AGREGA PRODUCTOS AL CARRITO
+//esta funcion agrega un  producto en el catalogo mediante un formulario.
 function agregarProducto(array) {
-    let prendaI = document.getElementById("nombreInput")
-    let categoriaI = document.getElementById("categoriaInput")
-    let precioI = document.getElementById("precioInput")
+    let prendaI = document.getElementById("nombreInput");
+    let categoriaI = document.getElementById("categoriaInput");
+    let precioI = document.getElementById("precioInput");
 
-    const NuevoProducto = new Tienda(array.length + 1, prendaI.value, categoriaI.value, precioI.value, "fotogenerica.jpg");
-    array.push(NuevoProducto)
-    //CUANDO AGREGAMOS UN PRODUCTO NUEVO,SE CARGARA EN EL STORAGE.
-    localStorage.setItem("tiendaCompleta", JSON.stringify(tiendaCompleta))
-    mostrarCatalogo(array)
-    //resetear el form
-    prendaI.value = ""
-    categoriaI.value = ""
-    precioI.value = ""
+    // Verificar si todos los campos están llenos
+    if (prendaI.value.trim() === "" || categoriaI.value.trim() === "" || precioI.value.trim() === "") {
+        // Mostrar mensaje de error si algún campo está vacío
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: 'Debes completar todos los campos del formulario.',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return; // Salir de la función sin agregar el producto
+    }
+
+    const NuevoProducto = new Tienda(array.length + 1, prendaI.value, categoriaI.value, parseInt(precioI.value), "fotogenerica.webp");
+
+    array.push(NuevoProducto);
+    // CUANDO AGREGAMOS UN PRODUCTO NUEVO, SE CARGA EN EL STORAGE.
+    localStorage.setItem("tiendaCompleta", JSON.stringify(tiendaCompleta));
+
+    // Resetear el formulario
+    prendaI.value = "";
+    categoriaI.value = "";
+    precioI.value = "";
+
+    // Mostrar mensaje de éxito
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        text: 'Has agregado el producto correctamente',
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
 
-//PROYECTO PREVIO AL DOM:
-//3 funciones de filtrado:nombre,categoria y precio:
-
+//3 funcion de barra de buqueda :filtrado:nombre,categoria
 function filtrarNombre(buscados, array) {
     let busquedas = array.filter(
         (producto) =>
             producto.producto.toLowerCase().includes(buscados.toLowerCase()) ||
             producto.categoria.toLowerCase().includes(buscados.toLowerCase())
     );
-    //operador ternario:
     busquedas.length == 0
-        ? (coincidencias.innerHTML = `<h4 class="text-center"> No hay coincidencias con la búsqueda de tu producto ${buscados}</h4>`, mostrarCatalogo(busquedas)) : (coincidencias.innerHTML = "", mostrarCatalogo(busquedas));
+        ? (coincidencias.innerHTML = `<h4 class="text-center"> No hay coincidencias con la búsqueda de tu producto ${buscados}</h4>`, mostrarMiCatalogo(busquedas)) : (coincidencias.innerHTML = "", mostrarMiCatalogo(busquedas));
 }
 
-// EVENTOS:1CAPTURO ID Y LUEGO PASO EL EVENTO
-//MIS EVENTOS DEL PROYECTO: 
-verCatalogo.addEventListener("click", () => {
-    mostrarCatalogo(tiendaCompleta)
+
+//funcion que muestra las finalizacion de la compra o en caso contrario muestera un mensaje confirmando que cancelo la compra.
+function terminarCompra(array) {
+    if (array.length === 0) {
+        // El carrito está vacío, muestra un mensaje indicando que se deben agregar productos.
+        Swal.fire({
+            title: 'Carrito vacío',
+            icon: 'warning',
+            text: 'Debe agregar productos al carrito para finalizar la compra.',
+            confirmButtonColor: 'green',
+            timer: 1500
+        });
+        return; // Sale de la función para que no continúe con el proceso de compra.
+    }
+    Swal.fire({
+        title: 'Está seguro de finalizar la compra',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Comprar',
+        cancelButtonText: 'Cancelar Compra',
+        confirmButtonColor: 'green',
+        cancelButtonColor: 'red',
+    })
+        .then((rstd) => {
+            if (rstd.isConfirmed) {
+                let dia = DateTime.now().toLocaleString(DateTime.TIME_24_)
+                let totalDefinitivo = calcularTotal(array)
+                Swal.fire({
+                    title: 'Compra realizada',
+                    icon: 'success',
+                    confirmButtonColor: 'green',
+                    text: `Muchas gracias por su compra del dia ${dia}. Su monto a pagar es: ${totalDefinitivo} `,
+                })
+
+                productosDelCarrito = []
+                localStorage.removeItem("carrito")
+            } else {
+                Swal.fire({
+                    title: 'Compra cancelada',
+                    icon: 'info',
+                    text: `La compra no ha sido realizada!`,
+                    confirmButtonColor: 'green',
+                    timer: 1500
+                })
+            }
+        })
+}
+
+/*formulario para pedir datos del usuario para ingresar*/
+function iniciarSesion() {
+    let modal = document.getElementById("modal")
+
+    modal.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        let nuevoUsuario = new User(username, password)
+        usuarios.push(nuevoUsuario)
+
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+
+
+        Swal.fire({
+            title: '¿Está seguro de iniciar sesión?',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, seguro',
+            cancelButtonText: 'No, no quiero',
+            confirmButtonColor: 'green',
+            cancelButtonColor: 'red',
+        })
+            .then((respuesta) => {
+
+                if (respuesta.isConfirmed) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        text: `Sesión iniciada con éxito ${username}`,
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+
+                    document.getElementById("username").value = "";
+                    document.getElementById("password").value = "";
+                } else {
+
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        text: 'Error al iniciar sesión, inténtelo de nuevo',
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                }
+            });
+    });
+}
+
+iniciarSesion()
+
+/*resetea los valores de los input*/
+function resetearModal() {
+    let username = document.getElementById("username");
+    let password = document.getElementById("password");
+    username.value = "";
+    password.value = "";
+}
+
+// EVENTOS:
+botonCerrarSesion.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Está seguro de cerrar sesion?',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, seguro',
+        cancelButtonText: 'No, no quiero',
+        confirmButtonColor: 'green',
+        cancelButtonColor: 'red',
+    })
+        .then((respuesta) => {
+            if (respuesta.isConfirmed) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    text: `Finalizo su sesión correctamente `,
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+                localStorage.removeItem("usuarios", JSON.stringify(usuarios))
+
+            } else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    text: `Sigue activa su sesion `,
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+            }
+        })
+})
+
+document.getElementById("idModalLogin").addEventListener('show.bs.modal', function () {
+    resetearModal();
 });
 
-ocultarCatalogoTienda.ondblclick = () => {
-    //cuando toco el click NO muestra mis productos
-    productoDiv.innerHTML = ``
-};
-
-agregarProductoBoton.addEventListener("click", function (event) {
-    //nos permite que no se actualice al ejecutar el evento
+botonAgregarProducto.addEventListener("click", function (event) {
     event.preventDefault()
-    // event.target
-    agregarProducto(tiendaCompleta),
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            text: 'Has agregado el producto correctamente',
-            showConfirmButton: false,
-            timer: 1500
-        })
+    agregarProducto(tiendaCompleta)
 });
 
 buscadores.addEventListener("input", () => {
     filtrarNombre(buscadores.value, tiendaCompleta)
 });
 
-//EVENTO DEL BOTON ENVIAR EN LA PAGINA DE FORMULARIO:
-
 //ORDENAR EL ARRAY DE 3 FORMAS: RANGO DE PRECIOS Y POR CATEGORIA
-ordenarSelect.addEventListener("change", () => {
-    switch (ordenarSelect.value) {
+selectOpciones.addEventListener("change", () => {
+    Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        text: 'Cargando,espere unos minutos',
+        showConfirmButton: false,
+        timer: 1000
+    })
+    switch (selectOpciones.value) {
         case "1":
             ordenarMayorMenor(tiendaCompleta)
             break
@@ -252,34 +443,85 @@ ordenarSelect.addEventListener("change", () => {
         case "3":
             ordenarCategoriaProductos(tiendaCompleta)
             break
-        default:
-            mostrarCatalogo(tiendaCompleta)
-            break
     }
+
 });
+
 botonCarrito.addEventListener("click", () => {
     mostrarProductoCarrito(productosDelCarrito)
 });
 
-
-
-
-//LIBRERIA SWEET:
-botonRegistrarse.addEventListener("click", () => {
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        text: 'Formulario enviado correctamente',
-        showConfirmButton: false,
-        timer: 1500
-    })
+finalizarCompra.addEventListener("click", () => {
+    terminarCompra(productosDelCarrito)
 })
 
-//LIBRERIA LUXON: 
+//setTimeout para imprimir carrito 
+setTimeout(() => {
+    cargando.remove()
+    cargandoText.remove()
+    mostrarMiCatalogo(tiendaCompleta)
+}, 1500)
+
+//LIBRERIA SWEET:
+newsletterForm.addEventListener("submit", () => {
+    if (botonRegistrarse == undefined) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: 'Hubo un error,debes rellenar todos los campos nuevamente.',
+            showConfirmButton: false,
+            timer: 2500
+        })
+
+    } else {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            text: 'Formulario enviado correctamente',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+})
+
+//LIBRERIA LUXON:AGREGO MIN Y  SEG AL RELOJ. 
 const DateTime = luxon.DateTime
-
-let fecha = document.getElementById("fecha")
 const ahora = DateTime.now()
+let fecha = document.getElementById("fecha")
+setInterval(() => {
+    let fechaMostrar = DateTime.now().toLocaleString(DateTime.TIME_24_WITH_SECONDS)
+    fecha.innerHTML = `${fechaMostrar}`
+}, 1000)
 
-let fechaMostrar = ahora.toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)
-fecha.innerHTML = `${fechaMostrar}`
+
+formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+    setTimeout(() => {
+        // Redirigir al usuario al index.html
+        window.location.href = "./index.html"
+    }, 1000)
+})
+
+// /EVENTO DE FORMULARIO.MUESTRA UN MENSAJE DE LA CONFIRMACION DEL FORMULARIO CORRECTAMENTE
+formulario.addEventListener("submit", () => {
+
+    const formData = new FormData(formulario);
+
+    if (formData.get("nombre") === "" || formData.get("email") === "" || formData.get("mensaje") === "") {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: 'Debes completar todos los campos del formulario.',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    } else {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            text: 'Formulario enviado correctamente',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+});

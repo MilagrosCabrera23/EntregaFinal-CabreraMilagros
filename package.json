@@ -1,0 +1,16 @@
+{
+  "name": "entregafinal-cabreramilagros",
+  "version": "1.0.0",
+  "description": "PROYECTO FINAL DE JS",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cabrera Milagros",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "luxon": "^3.3.0",
+    "sweetalert2": "^11.7.19"
+  }
+}
